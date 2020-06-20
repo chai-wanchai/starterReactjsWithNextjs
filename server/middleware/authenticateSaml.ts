@@ -1,0 +1,1 @@
+export default passport => passport.authenticate('saml', { failureRedirect: '/', failureFlash: true })

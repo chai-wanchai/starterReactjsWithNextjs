@@ -1,0 +1,14 @@
+# dependencies
+/node_modules
+/.vscode
+
+
+# production
+/.next
+/dist
+/build
+
+# Environment
+package-lock.json
+yarn.lock
+*.cert

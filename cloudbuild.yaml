@@ -1,0 +1,38 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: '/bin/sh'
+  args: 
+  - '-c'
+  - |
+    echo "building scg-rebate-web rev1"
+    
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-f', 'Dockerfile', '-t', 'asia.gcr.io/$PROJECT_ID/scg-rebate-web:$COMMIT_SHA', '.' ]
+  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "asia.gcr.io/$PROJECT_ID/scg-rebate-web:$COMMIT_SHA"]
+  
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'set'
+  - 'image'
+  - 'deployment
+  - '${_DEPLOYMENT_NAME}'
+  - '${_POD_SPEC}=asia.gcr.io/$PROJECT_ID/scg-rebate-web:$COMMIT_SHA'
+  - '--namespace'
+  - 'default'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
+  
+- name: 'gcr.io/cloud-builders/kubectl'
+  entrypoint: '/bin/sh'
+  args:
+  - '-c'
+  - |
+    echo asia.gcr.io/$PROJECT_ID/scg-rebate-web:$COMMIT_SHA > _IMAGE_WEB
+    
+- name: gcr.io/cloud-builders/gsutil
+  args: ['cp', '_IMAGE_WEB', 'gs://scgrebate-bucket-web-qas/_IMAGE_WEB']    
+  
+images: ['asia.gcr.io/$PROJECT_ID/scg-rebate-web:$COMMIT_SHA']

@@ -1,0 +1,19 @@
+{
+  "app-error-500": {
+    "title": "Something went wrong",
+    "message": "There was an error processing your request. Try reloading!"
+  },
+  "app-error-404": {
+    "title": "Not Found",
+    "message": "The page you are looking for might have been removed had its name changed or is temporarily unavailable."
+  },
+  "app-error-403": {
+    "title": "Forbidden",
+    "message": "You don't have permission to access on this page!"
+  },
+  "form-filter-price": {
+    "class-require": "Please select class",
+    "product-group-require": "Please select product group",
+    "region-require": "Please select region"
+  }
+}
