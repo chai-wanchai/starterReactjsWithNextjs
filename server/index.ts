@@ -5,8 +5,6 @@ import passport from 'passport'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import passportSaml from '../config/passportSaml'
-import loginRoute from './routes/login'
-import logoutRoute from './routes/logout'
 import featureRoute from './routes/feature'
 import app from './app'
 
@@ -14,7 +12,7 @@ const port = parseInt(process.env.PORT || '5000', 10)
 const handle = app.getRequestHandler()
 
 // Setup passport saml config
-passportSaml(passport)
+// passportSaml(passport)
 
 // Handle render page with NextJS
 // const renderPage = (req, res, path, query?) => app.render(req, res, path, query)
@@ -47,10 +45,6 @@ app.prepare().then(() => {
   )
 
   // End 3rd paty ----------------------------------
-
-  logoutRoute(server)
-  
-  loginRoute(server, renderPage, passport)
 
   featureRoute(server, renderPage)
 

@@ -34,16 +34,8 @@ export default (passport) => {
       function(profile, done) {
         console.log("profile.nameID =====> : ");
         console.log(profile.nameID);
-        // console.log(profile["nameID"]);
-        // console.log(profile.SamAccountName);
-        // user.saml = {};
-        // user.saml.nameID = profile.nameID;
-        // user.saml.nameIDFormat = profile.nameIDFormat;
         return done(null, {
-            user_ad: profile.nameID 
-            // upn: profile["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"],
-            // // e.g. if you added a Group claim
-            // group: profile["http://schemas.xmlsoap.org/claims/Group"]
+            user_ad: profile.nameID
         })
       }
     )

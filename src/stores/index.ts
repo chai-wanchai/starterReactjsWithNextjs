@@ -1,11 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import auth, { State as AuthState } from './auth/reducer'
-import master, { State as MasterState } from './master/reducer'
 
 export interface RootState {
   auth: AuthState
-  master: MasterState
 }
 
 const bindMiddleware = middleware => {
@@ -19,8 +17,7 @@ const bindMiddleware = middleware => {
 export const initStore = () => {
   return createStore(
     combineReducers({
-      auth,
-      master
+      auth
     }),
     bindMiddleware([thunkMiddleware])
   )

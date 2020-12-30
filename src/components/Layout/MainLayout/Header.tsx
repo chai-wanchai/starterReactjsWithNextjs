@@ -130,7 +130,7 @@ const Header: FunctionComponent<HeaderProps> = ({
 const mapDispatchToProps = dispatch => ({
   todoAuth: new ToDoAuth(dispatch)
 })
-const mapStateToProps = ({ auth, master }: RootState) => ({
-  auth, master
+const mapStateToProps = ({ auth }: RootState) => ({
+  auth
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

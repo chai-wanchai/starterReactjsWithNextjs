@@ -5,7 +5,6 @@ import NextApp, { AppContext } from 'next/app'
 import { RebateAppContext } from '../src/intefaces'
 import { initStore } from '../src/stores'
 import { creator as authCreator } from '../src/stores/auth/action'
-import { creator as masterCreator, MasterKey } from '../src/stores/master/action'
 import Layout from '../src/components/Layout'
 import AppProgress from '../src/components/AppProgress'
 import ErrorPage from './_error'
@@ -63,17 +62,6 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
       store.dispatch(authCreator.setUserMenu(pageProps.userMenu))
     }
 
-    // Set master data to redux store
-    if (pageProps.masterData) {
-      Object.keys(pageProps.masterData).forEach((key: MasterKey) => {
-        if (key === 'customer') {
-          store.dispatch(masterCreator.setMasterCustomer(pageProps.masterData[key]))
-        }
-        store.dispatch(
-          masterCreator.setMasterRaw(key, pageProps.masterData[key])
-        )
-      })
-    }
 
     return state
   }
