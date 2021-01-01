@@ -8,5 +8,8 @@ export default (server, render) => {
   server.get('/',  (req, res) => {
     return render(req, res, '/home', { ...req.query })
   })
+  server.get('/game-prize/:gameId',  (req, res) => {
+    return render(req, res, '/game', { ...req.query,...req.params })
+  })
 
 }

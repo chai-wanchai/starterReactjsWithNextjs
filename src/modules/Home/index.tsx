@@ -24,7 +24,7 @@ const Home: FunctionComponent<HomeProps> = ({
 }) => {
   return (
     <Wrapper>
-      <GameLuckyPrizes></GameLuckyPrizes>
+   
     </Wrapper>
   )
 }

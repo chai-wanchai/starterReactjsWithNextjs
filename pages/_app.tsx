@@ -74,9 +74,8 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
         error,
         layout,
         ...pageProps
-      },
+      }
     } = this.props
-    console.log(this.props)
     return (
       <Provider store={store}>
         {error ? (
@@ -85,7 +84,7 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
           </Layout>
         ): (
           <Layout type={layout}>
-            <Component {...pageProps} />
+            <Component {...this.props} />
           </Layout>
         )}
         <AppProgress
