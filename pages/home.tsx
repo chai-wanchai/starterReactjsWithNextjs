@@ -7,12 +7,13 @@ interface HomePageProps {
 }
 
 class HomePage extends Component<HomePageProps> {
-  static getInitialProps = (ctx: RebateAppContext) => withAuth(ctx).then<RebateAppPageProps>((props) => ({
-    ...props,
-    layout: 'main'
-  }))
+  // static getInitialProps = (ctx: RebateAppContext) => withAuth(ctx).then<RebateAppPageProps>((props) => ({
+  //   ...props,
+  //   layout: 'main'
+  // }))
   
   render() {
+    console.log('home')
     return (
       <Home />
     )

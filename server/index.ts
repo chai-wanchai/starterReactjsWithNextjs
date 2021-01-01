@@ -38,10 +38,10 @@ app.prepare().then(() => {
   // Passport initialize
   server.use(passport.initialize())
   // Passport set session
-  server.use(passport.session())
+  // server.use(passport.session())
 
   server.get('/healthcheck', (req, res) => 
-    res.json({ message: 'scg-rebate-web ok' })
+    res.json({ message: 'ok' })
   )
 
   // End 3rd paty ----------------------------------

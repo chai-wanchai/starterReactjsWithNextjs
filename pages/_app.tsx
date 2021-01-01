@@ -47,20 +47,20 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
 
     const { store, pageProps } = nextProps
 
-    // Set token to redux store
-    if (pageProps.token) {
-      store.dispatch(authCreator.setToken(pageProps.token))
-    }
+    // // Set token to redux store
+    // if (pageProps.token) {
+    //   store.dispatch(authCreator.setToken(pageProps.token))
+    // }
 
-    // Set user information to redux store
-    if (pageProps.userInfo) {
-      store.dispatch(authCreator.setUserInfo(pageProps.userInfo))
-    }
+    // // Set user information to redux store
+    // if (pageProps.userInfo) {
+    //   store.dispatch(authCreator.setUserInfo(pageProps.userInfo))
+    // }
 
-    // Set allow access menu to redux store
-    if (pageProps.userMenu) {
-      store.dispatch(authCreator.setUserMenu(pageProps.userMenu))
-    }
+    // // Set allow access menu to redux store
+    // if (pageProps.userMenu) {
+    //   store.dispatch(authCreator.setUserMenu(pageProps.userMenu))
+    // }
 
 
     return state
@@ -76,7 +76,7 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
         ...pageProps
       },
     } = this.props
-    
+    console.log(this.props)
     return (
       <Provider store={store}>
         {error ? (

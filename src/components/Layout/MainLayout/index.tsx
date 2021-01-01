@@ -65,15 +65,10 @@ const menu = [
 const MainLayout: FunctionComponent = ({
   children
 }) => (
-    <>
-      <GlobalLayoutStyle />
-      <Header />
-      <MenuCustom menus={menu} activeMenu="/dashboard" />
-      <Body>
-        {children}
-      </Body>
-      <Footer />
-    </>
-  )
+  <>
+
+    {children}
+  </>
+)
 
 export default MainLayout
