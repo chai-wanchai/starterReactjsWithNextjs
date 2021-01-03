@@ -73,18 +73,19 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
       pageProps: {
         error,
         layout,
+        statusCode,
         ...pageProps
       }
     } = this.props
     return (
       <Provider store={store}>
-        {error ? (
+        {error || statusCode ? (
           <Layout type='none'>
-             <ErrorPage statusCode={error} />
+             <ErrorPage statusCode={error || statusCode} />
           </Layout>
         ): (
           <Layout type={layout}>
-            <Component {...this.props} />
+            <Component {...this.props} {...pageProps}/>
           </Layout>
         )}
         <AppProgress

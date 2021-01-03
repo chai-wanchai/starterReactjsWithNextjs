@@ -5,7 +5,7 @@ import { Header, Icon, Segment, Divider } from 'semantic-ui-react'
 import { RootState } from '../../stores'
 import GameLuckyPrizes from '../GameLuckyPrizes'
 import { deviceBreakPoint } from '../../utils/css'
-const Wrapper = styled('div')`
+export const WrapperBackground = styled('div')`
   background-image : url("/images/yellow-bg.jpg");
   height: 100vh;
   background-position: center;
@@ -23,9 +23,9 @@ const Home: FunctionComponent<HomeProps> = ({
   userRole
 }) => {
   return (
-    <Wrapper>
-   
-    </Wrapper>
+    <WrapperBackground>
+      <h1>Game Prizes</h1>
+    </WrapperBackground>
   )
 }
 

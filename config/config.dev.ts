@@ -7,6 +7,13 @@ const conf: Config = {
   api: {
     backEnd: 'http://localhost:5001/api/v1',
     frontEnd: 'http://localhost:5000'
+  },
+  database:{
+    host: 'localhost',
+    port: 5432,
+    username: 'admin',
+    password: 'root',
+    database: 'mysql',
   }
 }
 

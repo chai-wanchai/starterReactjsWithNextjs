@@ -13,6 +13,13 @@ export interface Config {
     backEnd: string
     frontEnd: string
   }
+  database?:{
+    host: string
+    port: number
+    username: string
+    password: string
+    database: string
+  }
 }
 
 export interface PublicRuntime { // This interface ref from {@root}/next.config.js

@@ -5,11 +5,14 @@ import AjaxtRequest from '../../src/utils/AjaxtRequest'
 export default (server, render) => {
 
   /** @route home page */
-  server.get('/',  (req, res) => {
+  server.get('/', (req, res) => {
     return render(req, res, '/home', { ...req.query })
   })
-  server.get('/game-prize/:gameId',  (req, res) => {
-    return render(req, res, '/game', { ...req.query,...req.params })
+  server.get('/game-prize/:gameId', (req, res) => {
+    return render(req, res, '/game', { ...req.query, ...req.params })
+  })
+  server.get('/qr-code', (req, res) => {
+    return render(req, res, '/qr-code', { ...req.query })
   })
 
 }

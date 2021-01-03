@@ -1,8 +1,10 @@
-import React, { FunctionComponent, useRef, useState } from "react"
+import React, { FunctionComponent, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
+import gameApi from "../../api/GameApi"
 import PopupPrizes from "./components/PopupPrizes"
 interface Props {
 	gameId: string
+	gameData?: any
 }
 const Tittle = styled('h1')`
 	font-family: 'Helvetica Neue', sans-serif; 
@@ -43,17 +45,29 @@ const Wrapper = styled('div')`
   position: fixed;
   width:100%;
 `
-const GamePrizes: FunctionComponent<Props> = ({gameId}) => {
+const GamePrizes: FunctionComponent<Props> = ({ gameId, gameData }) => {
 	const refGift = useRef(null);
 	const [open, setOpen] = useState(false)
 	const [giftImg, setGiftImg] = useState('/images/gift.png')
-	const onClickPrizes = () => {
+	const [giftData, setGiftData] = useState(null)
+	const onClickPrizes = async () => {
+		await getGift()
 		setOpen(true)
 	}
+	const getGift = async () => {
+		const res = await gameApi.getGameGift({ gameId })
+		setGiftData(res.data)
+	}
+	useEffect(() => {
+		if(gameData){
+			setGiftData(gameData)
+			setOpen(true)
+		}
+	}, [])
 	return (
 		<Wrapper>
 			<Tittle>Game Prizes</Tittle>
-			<PopupPrizes isOpen={open} setOpen={setOpen} />
+			<PopupPrizes isOpen={open} setOpen={setOpen} giftData={giftData} />
 			<GiftImg onClick={onClickPrizes} ref={refGift}>
 				<img src={giftImg}></img>
 			</GiftImg>

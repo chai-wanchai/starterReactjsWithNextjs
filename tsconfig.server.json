@@ -5,6 +5,7 @@
     "outDir": "build",
     "target": "es2017",
     "isolatedModules": false,
+    "experimentalDecorators": true,
     "noEmit": false
   },
   "include": [
