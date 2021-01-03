@@ -6,8 +6,9 @@ interface Props {
 	setOpen?: (open: boolean) => void
 	modalProps?: ModalProps
 	giftData: any
+	gameId: string
 }
-const PopupPrizes: FunctionComponent<Props> = ({ isOpen, setOpen, modalProps, giftData }) => {
+const PopupPrizes: FunctionComponent<Props> = ({ isOpen, setOpen, modalProps, giftData,gameId }) => {
 	const [gift, setGift] = useState({ promotionCode: null, description: null, status: 'lost' })
 	useEffect(() => {
 		setOpen(isOpen)
@@ -25,7 +26,11 @@ const PopupPrizes: FunctionComponent<Props> = ({ isOpen, setOpen, modalProps, gi
 				{...modalProps}>
 				<Modal.Content>
 					<Modal.Description>
-						<GiftCard promotionCode={gift.promotionCode} status={gift.status} description={gift.description}></GiftCard>
+						<GiftCard 
+						gameId={gameId}
+						promotionCode={gift.promotionCode} 
+						status={gift.status} 
+						description={gift.description}/>
 					</Modal.Description>
 				</Modal.Content>
 			</Modal>

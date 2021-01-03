@@ -13,7 +13,8 @@ const conf: Config = {
     port: 5432,
     username: 'admin',
     password: 'root',
-    database: 'mysql',
+    database: 'game_prizes',
+    type: 'mysql'
   }
 }
 

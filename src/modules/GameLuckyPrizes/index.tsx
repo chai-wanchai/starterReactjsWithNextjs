@@ -67,7 +67,7 @@ const GamePrizes: FunctionComponent<Props> = ({ gameId, gameData }) => {
 	return (
 		<Wrapper>
 			<Tittle>Game Prizes</Tittle>
-			<PopupPrizes isOpen={open} setOpen={setOpen} giftData={giftData} />
+			<PopupPrizes isOpen={open} setOpen={setOpen} giftData={giftData} gameId={gameId}/>
 			<GiftImg onClick={onClickPrizes} ref={refGift}>
 				<img src={giftImg}></img>
 			</GiftImg>

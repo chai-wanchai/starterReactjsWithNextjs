@@ -9,11 +9,12 @@ const conf: Config = {
     frontEnd: 'https://rebateonline.nexterdigitals-dev.com'
   },
   database: {
-    host: 'localhost',
-    port: 5432,
-    username: 'admin',
-    password: 'root',
-    database: 'mysql',
+    host: 'us-cdbr-east-02.cleardb.com',
+    port: 3308,
+    username: 'b6be5dcb7c4585',
+    password: 'b74854d1',
+    database: 'heroku_c6cf77564ca1516',
+    type: 'mysql'
   }
 }
 

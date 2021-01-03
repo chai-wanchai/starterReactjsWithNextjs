@@ -18,7 +18,8 @@ export interface Config {
     port: number
     username: string
     password: string
-    database: string | any
+    database: string 
+    type: any
   }
 }
 

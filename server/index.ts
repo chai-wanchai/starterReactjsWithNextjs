@@ -9,6 +9,7 @@ import featureRoute from './routes/feature'
 import gameRoute from './routes/api'
 import app from './app'
 import domain  from 'domain'
+import { Database } from './utils/database'
 
 const port = parseInt(process.env.PORT || '5000', 10)
 const handle = app.getRequestHandler()
@@ -66,7 +67,10 @@ app.prepare().then(() => {
 
   server.all('*', (req, res) => handle(req, res))
 
-  server.listen(port, () => {
+  server.listen(port, async() => {
+    const db = new Database()
+    const dbService = await db.getConnection()
+    console.log(dbService.options)
     console.log(`> Ready on http://localhost:${port}`)
   })
 

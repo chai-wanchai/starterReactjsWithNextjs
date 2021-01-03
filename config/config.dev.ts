@@ -8,12 +8,13 @@ const conf: Config = {
     backEnd: 'http://localhost:5001/api/v1',
     frontEnd: 'http://localhost:5000'
   },
-  database:{
+  database: {
     host: 'localhost',
-    port: 5432,
-    username: 'admin',
-    password: 'root',
-    database: 'mysql',
+    port: 3308,
+    username: 'root',
+    password: 'root2',
+    database: 'game_prizes',
+    type: 'mysql'
   }
 }
 

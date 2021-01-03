@@ -1,7 +1,5 @@
 import config from '../../config';
 import { createConnection, ConnectionOptions, Connection } from 'typeorm';
-var pg = require('pg');
-pg.defaults.ssl = true;
 export interface DBInterface {
   connection: any;
 }
@@ -13,7 +11,7 @@ export class Database {
   }
   public getOption() {
     const options: ConnectionOptions = {
-      type: config.database.database,
+      type: config.database.type,
       host: config.database.host,
       port: config.database.port,
       username: config.database.username,
