@@ -1,10 +1,8 @@
 import styled from 'styled-components'
-import { connect } from 'react-redux'
 import { FunctionComponent } from 'react'
-import { Header, Icon, Segment, Divider } from 'semantic-ui-react'
-import { RootState } from '../../stores'
-import GameLuckyPrizes from '../GameLuckyPrizes'
 import { deviceBreakPoint } from '../../utils/css'
+import modal from '../../utils/modal'
+import dynamic from 'next/dynamic'
 export const WrapperBackground = styled('div')`
   background-image : url("/images/yellow-bg.jpg");
   height: 100vh;
@@ -14,23 +12,46 @@ export const WrapperBackground = styled('div')`
   position: fixed;
   width:100%;
 `
+const Title = styled('h1')`
+	text-align:center;
+	margin-top:2rem !important;
+	font-size: 3rem;
+  font-weight: 800;
+`
 
 interface HomeProps {
-  userRole?: number
 }
 
-const Home: FunctionComponent<HomeProps> = ({
-  userRole
-}) => {
+const QrReader = dynamic<any>(
+  () => import('react-qr-reader'),
+  { ssr: false }
+)
+const Home: FunctionComponent<HomeProps> = () => {
+  const handleError = (err:Error) => {
+    if (err) {
+      modal.error(err.message)
+    }
+  }
+  const handleScan = (data) => {
+    if (data) {
+      window.open(data, "_self")
+    }
+  }
   return (
     <WrapperBackground>
-      <h1>Game Prizes</h1>
+      <Title>Game Prizes</Title>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <QrReader
+          showViewFinder={true}
+          delay={300}
+          onError={handleError}
+          onScan={handleScan}
+          style={{ width: '300px', height: '300px' }}
+        />
+      </div>
+
     </WrapperBackground>
   )
 }
 
-const mapStateToProps = ({ auth }: RootState) => ({
-  userRole: auth.user.info.role_id
-})
-
-export default connect(mapStateToProps, null)(Home)
+export default Home
