@@ -13,12 +13,12 @@ export class Database {
   }
   public getOption() {
     const options: ConnectionOptions = {
-      type: 'mysql',
-      host: config.mysql.host,
-      port: config.mysql.port,
-      username: config.mysql.username,
-      password: config.mysql.password,
-      database: config.mysql.database,
+      type: config.database.database,
+      host: config.database.host,
+      port: config.database.port,
+      username: config.database.username,
+      password: config.database.password,
+      database: config.database.database,
       entities: [
         process.env.PWD+ '/server/models/*.ts'
       ],

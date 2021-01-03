@@ -20,7 +20,7 @@ class Request {
     timeout: 60000
   })
   public app: AxiosInstance = axios.create({
-    baseURL: config.api.frontEnd,
+    // baseURL: config.api.frontEnd,
     timeout: 60000
   })
   constructor() {
