@@ -1,16 +1,16 @@
-import { RebateAppContext, RebateAppPageProps } from '../intefaces'
+import { WebAppContext, AppPageProps } from '../intefaces'
 import { authApi } from '../api/AuthApi'
 import { RootState } from '../stores'
 import redirect from './redirect'
 import userToken from './userToken'
 
 
-export default async (ctx: RebateAppContext): Promise<RebateAppPageProps> => {
+export default async (ctx: WebAppContext): Promise<AppPageProps> => {
 
   // Get state from Redux store
   const { auth } = ctx.store.getState() as RootState
   // withAuth should return
-  const props: RebateAppPageProps = {
+  const props: AppPageProps = {
     layout: 'none',
     error: undefined,
     token: undefined,

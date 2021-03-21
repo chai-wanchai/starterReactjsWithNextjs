@@ -26,12 +26,12 @@ export interface PublicRuntime { // This interface ref from {@root}/next.config.
 
 // RebateOnline application inteface -----------------
 
-export interface RebateAppPageProps {
+export interface AppPageProps {
   [name: string]: any
   layout: LayoutType
 }
 
-export interface RebateAppContext extends NextPageContext { // override req & res from module `http` to `express`
+export interface WebAppContext extends NextPageContext { // override req & res from module `http` to `express`
   req?: Request
   res?: Response
   store: Store

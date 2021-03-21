@@ -2,26 +2,26 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import NextApp, { AppContext } from 'next/app'
-import { RebateAppContext } from '../src/intefaces'
+import { WebAppContext } from '../src/intefaces'
 import { initStore } from '../src/stores'
 import { creator as authCreator } from '../src/stores/auth/action'
 import Layout from '../src/components/Layout'
 import AppProgress from '../src/components/AppProgress'
 import ErrorPage from './_error'
 
-interface RebateOnlineAppContext extends AppContext {
-  ctx: RebateAppContext
+interface WebAppContextProps extends AppContext {
+  ctx: WebAppContext
 }
 
-interface RebateOnlineAppProps {
+interface WebAppProps {
   store: any
 }
 
-class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
+class WebApp extends NextApp<WebAppProps> {
 
   state = {}
 
-  static async getInitialProps(context: RebateOnlineAppContext) {
+  static async getInitialProps(context: WebAppContextProps) {
     const { Component, ctx } = context
 
     try {
@@ -99,4 +99,4 @@ class RebateOnlineApp extends NextApp<RebateOnlineAppProps> {
   }
 }
 
-export default withRedux(initStore)(RebateOnlineApp)
+export default withRedux(initStore)(WebApp)

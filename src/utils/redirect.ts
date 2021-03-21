@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { RebateAppContext } from '../../src/intefaces'
+import { WebAppContext } from '../../src/intefaces'
 
 const getActualPage = (target: string): string => {
   switch (target) {
@@ -9,7 +9,7 @@ const getActualPage = (target: string): string => {
   }
 }
 
-export default (target: string, ctx?: RebateAppContext, option?: any) => {
+export default (target: string, ctx?: WebAppContext, option?: any) => {
   if (ctx && ctx.res) {
     // If on the server, an HTTP 303 response with a "Location"
     // is used to redirect.
