@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { FunctionComponent } from 'react'
-import Header from './Header'
-import Footer from './Footer'
 
 const GlobalLayoutStyle = createGlobalStyle`
   body {
@@ -42,9 +40,6 @@ const MainLayout: FunctionComponent = ({
   children
 }) => (
   <>
-<Header>
-  
-</Header>
     {children}
   </>
 )

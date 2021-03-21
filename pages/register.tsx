@@ -42,9 +42,6 @@ export default function register() {
 		} else {
 			modal.error('Password ไม่ตรงกัน กรุณากรอกใหม่อีกครั้ง')
 		}
-		// const result = await authApi.registerUser()
-		// userToken.setUserToken(result.access_token)
-		// router.push('/')
 	}
 	return (
 		<Grid centered columns={2}>

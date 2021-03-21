@@ -8,7 +8,11 @@ export function login({
 	todoAuth, auth
 }) {
 	useEffect(() => {
-	})
+		const token = userToken.getUserToken()
+		if(token){
+			router.push('/')
+		}
+	},[])
 	const [userLogin, setUserLogin] = useState({
 		email: '',
 		password: ''

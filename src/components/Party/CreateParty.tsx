@@ -17,15 +17,19 @@ export default function CreateParty() {
 	}
 	const onClickCreate = async () => {
 		const res = await partyApi.createParty(partyInfo)
-		if(res.error){
+		if (res.error) {
 			modal.error(res.error.message)
-		}else{
+		} else {
 			router.push('/')
 		}
 	}
 	return (
 		<div>
-			<h2>สร้างปาร์ตี้</h2>
+			<div>
+				<Button icon="arrow left" onClick={() => { router.push('/') }}></Button>
+				<h2>สร้างปาร์ตี้</h2>
+			</div>
+
 			<Form>
 				<Form.Field>
 					<label>ชื่อปาร์ตี้</label>

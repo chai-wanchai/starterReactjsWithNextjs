@@ -19,7 +19,7 @@ export default async (ctx: WebAppContext): Promise<AppPageProps> => {
     masterData: undefined
   }
   // Get user token from cookie or store
-  const token = ctx.isServer ? userToken.getUserToken(ctx.req) : auth.token
+  const token = userToken.getUserToken()
 
   if (!token) {
     /**
