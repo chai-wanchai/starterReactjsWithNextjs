@@ -43,29 +43,6 @@ class WebApp extends NextApp<WebAppProps> {
 
   }
 
-  static getDerivedStateFromProps(nextProps, state) {
-
-    const { store, pageProps } = nextProps
-
-    // // Set token to redux store
-    // if (pageProps.token) {
-    //   store.dispatch(authCreator.setToken(pageProps.token))
-    // }
-
-    // // Set user information to redux store
-    // if (pageProps.userInfo) {
-    //   store.dispatch(authCreator.setUserInfo(pageProps.userInfo))
-    // }
-
-    // // Set allow access menu to redux store
-    // if (pageProps.userMenu) {
-    //   store.dispatch(authCreator.setUserMenu(pageProps.userMenu))
-    // }
-
-
-    return state
-  }
-
   render() {
     const {
       store,

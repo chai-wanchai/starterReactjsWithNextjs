@@ -1,6 +1,7 @@
 import { RequestApiResponse } from '../../intefaces'
 import { authApi } from '../../api/AuthApi'
 import { creator } from './action'
+import userToken from '../../utils/userToken'
 
 interface ToDo {
   onReset: () => void
@@ -24,9 +25,9 @@ class ToDoAuth implements ToDo {
   }
 
   public onLogin = async (username, password) => {
-    const response = await authApi.login({ username, password })
+    const response = await authApi.login(username, password)
     if (response.isSuccess) {
-      this.onSetToken(response.data.token)
+      this.onSetToken(response.data.access_token)
     }
     return response
   }
