@@ -4,12 +4,9 @@ import express from 'express'
 import passport from 'passport'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
-import passportSaml from '../config/passportSaml'
 import featureRoute from './routes/feature'
-import gameRoute from './routes/api'
 import app from './app'
 import domain  from 'domain'
-import { Database } from './utils/database'
 
 const port = parseInt(process.env.PORT || '5000', 10)
 const handle = app.getRequestHandler()
@@ -48,8 +45,7 @@ app.prepare().then(() => {
   server.use(cors())
   // Helmet frameguard
   server.use(helmet.frameguard({ action: 'SAMEORIGIN' }))
-  // Passport initialize
-  server.use(passport.initialize())
+
   // Passport set session
   // server.use(passport.session())
 
@@ -57,8 +53,6 @@ app.prepare().then(() => {
     res.json({ message: 'ok' })
   )
 
-  // End 3rd paty ----------------------------------
-  server.use('/api',gameRoute)
   featureRoute(server, renderPage)
 
   // End routes ------------------------------------
@@ -68,9 +62,6 @@ app.prepare().then(() => {
   server.all('*', (req, res) => handle(req, res))
 
   server.listen(port, async() => {
-    const db = new Database()
-    const dbService = await db.getConnection()
-    console.log(dbService.options)
     console.log(`> Ready on http://localhost:${port}`)
   })
 

@@ -5,16 +5,8 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: false,
   api: {
-    backEnd: 'http://localhost:5001/api/v1',
+    backEnd: 'http://localhost:4000',
     frontEnd: 'http://localhost:5000'
-  },
-  database: {
-    host: 'localhost',
-    port: 3308,
-    username: 'root',
-    password: 'root2',
-    database: 'game_prizes',
-    type: 'mysql'
   }
 }
 

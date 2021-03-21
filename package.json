@@ -1,18 +1,10 @@
 {
   "name": "scg-rebate-web",
   "version": "1.0.0",
-  "description": "SCG Rebate Online Web",
+  "description": "SCB x10",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/nexterdigitals/scg-rebate-web.git"
-  },
-  "author": "SCG Digital Office",
+  "author": "Wanchai Nupinit",
   "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/nexterdigitals/scg-rebate-web/issues"
-  },
-  "homepage": "https://gitlab.com/nexterdigitals/scg-rebate-web#readme",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
@@ -31,7 +23,6 @@
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
     "moment": "^2.24.0",
-    "mysql": "^2.18.1",
     "next": "^9.3.3",
     "next-redux-wrapper": "^5.0.0",
     "nprogress": "^0.2.0",
@@ -50,7 +41,6 @@
     "styled-components": "^5.0.1",
     "sweetalert2": "^9.10.8",
     "sweetalert2-react-content": "^3.0.1",
-    "typeorm": "^0.2.29",
     "universal-cookie": "^4.0.3",
     "uuid": "^8.1.0",
     "xlsx": "^0.15.6"

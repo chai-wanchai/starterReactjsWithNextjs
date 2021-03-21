@@ -8,11 +8,11 @@ export default (server, render) => {
   server.get('/', (req, res) => {
     return render(req, res, '/home', { ...req.query })
   })
-  server.get('/game-prize/:gameId', (req, res) => {
-    return render(req, res, '/game', { ...req.query, ...req.params })
+  server.get('/', (req, res) => {
+    return render(req, res, '/', { ...req.query, ...req.params })
   })
-  server.get('/qr-code', (req, res) => {
-    return render(req, res, '/qr-code', { ...req.query })
+  server.get('/', (req, res) => {
+    return render(req, res, '/', { ...req.query })
   })
 
 }

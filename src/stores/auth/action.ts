@@ -29,9 +29,6 @@ export interface Creator {
   setUserInfo: (data: RootState['auth']['user']['info']) => ThunkAction<void, RootState, undefined, Action>
   resetUserInfo: () => ThunkAction<void, RootState, undefined, Action>
 
-  setUserMenu: (data: RootState['auth']['user']['menu']) => ThunkAction<void, RootState, undefined, Action>
-  resetUserMenu: () => ThunkAction<void, RootState, undefined, Action>
-
   reset: () => ThunkAction<void, RootState, undefined, Action>
 
 }
@@ -54,14 +51,6 @@ const resetUserInfo: Creator['resetUserInfo'] = () => dispatch => dispatch({
   type: 'AUTH_STORE_RESET_USER_INFO'
 })
 
-const setUserMenu: Creator['setUserMenu'] = data => dispatch => dispatch({
-  type: 'AUTH_STORE_SET_USER_MENU',
-  payload: { data }
-})
-
-const resetUserMenu: Creator['resetUserMenu'] = () => dispatch => dispatch({
-  type: 'AUTH_STORE_RESET_USER_MENU'
-})
 
 const reset: Creator['reset'] = () => dispatch => dispatch({
   type: 'AUTH_STORE_RESET'
@@ -72,7 +61,5 @@ export const creator: Creator = {
   resetToken,
   setUserInfo,
   resetUserInfo,
-  setUserMenu,
-  resetUserMenu,
   reset
 }

@@ -14,7 +14,9 @@ class HomePage extends Component<HomePageProps> {
   
   render() {
     return (
-      <Home />
+      <>
+      Home
+      </>
     )
   }
 }

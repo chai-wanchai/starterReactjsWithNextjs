@@ -1,15 +1,9 @@
 import { RebateAppContext, RebateAppPageProps } from '../intefaces'
 import { authApi } from '../api/AuthApi'
 import { RootState } from '../stores'
-import { PermissionMenu } from '../stores/auth/reducer'
 import redirect from './redirect'
 import userToken from './userToken'
 
-const checkPermissionPage = (page: string, menu: PermissionMenu[]) => {
-
-  return true
-
-}
 
 export default async (ctx: RebateAppContext): Promise<RebateAppPageProps> => {
 
@@ -44,18 +38,6 @@ export default async (ctx: RebateAppContext): Promise<RebateAppPageProps> => {
     // Set token verify
     props.token = token
 
-    // Get user information
-    const resUserInfo = await authApi.getUserInfo(token)
-    if (resUserInfo.isSuccess) {
-      props.userInfo = resUserInfo.data
-    }
-
-    // Get allow access menu system for user
-    const resUserMenu = await authApi.getRoleMenu(token)
-    if (resUserMenu.isSuccess) {
-      props.userMenu = resUserMenu.data
-    }
-
 
   } else {
     /**
@@ -65,10 +47,6 @@ export default async (ctx: RebateAppContext): Promise<RebateAppPageProps> => {
     userToken.removeUserToken(ctx.res)
     redirect('/login', ctx)
     throw new Error(resVerifyToke.error.message)
-  }
-
-  if (props.userMenu && !checkPermissionPage(ctx.pathname, props.userMenu)) {
-    props.error = 404 // force show page not found
   }
 
   return props

@@ -5,16 +5,8 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: true,
   api: {
-    backEnd: 'https://rebateonline-api.nexterdigitals-dev.com/api/v1',
-    frontEnd: 'https://rebateonline.nexterdigitals-dev.com'
-  },
-  database: {
-    host: 'us-cdbr-east-02.cleardb.com',
-    port: 3308,
-    username: 'b6be5dcb7c4585',
-    password: 'b74854d1',
-    database: 'heroku_c6cf77564ca1516',
-    type: 'mysql'
+    backEnd: 'http://34.126.93.32:4000',
+    frontEnd: 'http://34.126.93.32:5000'
   }
 }
 

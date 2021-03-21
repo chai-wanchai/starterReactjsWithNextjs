@@ -63,7 +63,7 @@ class Modal {
 
   public Unauthorize = (msgError?: string): OpenResult => this._modal.fire({
     type: 'error',
-    title: <p>ไม่มีสิทธิเข้าใช้ Rebate Online !</p>,
+    title: <p>ไม่มีสิทธิเข้าใช้ </p>,
     allowOutsideClick: false,
     confirmButtonText: 'ออกจากระบบ',
     text: msgError || 'กรุณาติดต่อ Admin Website',

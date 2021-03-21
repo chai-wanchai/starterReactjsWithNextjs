@@ -39,16 +39,7 @@ const Home: FunctionComponent<HomeProps> = () => {
   }
   return (
     <WrapperBackground>
-      <Title>Game Prizes</Title>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <QrReader
-          showViewFinder={true}
-          delay={300}
-          onError={handleError}
-          onScan={handleScan}
-          style={{ width: '300px', height: '300px' }}
-        />
-      </div>
+  
 
     </WrapperBackground>
   )

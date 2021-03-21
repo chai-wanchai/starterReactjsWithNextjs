@@ -5,8 +5,6 @@ import { creator } from './action'
 interface ToDo {
   onReset: () => void
   onSetToken: (data: string) => void
-  onLoginWithADFS: (username: string) => Promise<RequestApiResponse>
-  onLoginWithoutADFS: (username: string, password: string) => Promise<RequestApiResponse>
   onLogOut: () => Promise<any>
 }
 
@@ -25,23 +23,11 @@ class ToDoAuth implements ToDo {
     this.dispatch(creator.setToken(data))
   }
 
-  public onLoginWithADFS = async username => {
-    const response = await authApi.loginWithADFS('app', username)
-    
+  public onLogin = async (username, password) => {
+    const response = await authApi.login({ username, password })
     if (response.isSuccess) {
       this.onSetToken(response.data.token)
     }
-
-    return response
-  }
-
-  public onLoginWithoutADFS = async (username, password) => {
-    const response = await authApi.loginWithoutADFS('app', { username, password })
-
-    if (response.isSuccess) {
-      this.onSetToken(response.data.token)
-    }
-
     return response
   }
 

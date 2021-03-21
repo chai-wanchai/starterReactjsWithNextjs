@@ -5,9 +5,5 @@ module.exports = {
   publicRuntimeConfig: {
     env: process.env.NODE_ENV,
     appVersion: packageJSON.version,
-    adfs: {
-      signoutUrl: 'https://accessdev.scg.co.th/adfs/ls/?wa=wsignout1.0',
-      signoutTarget: 'Secure Payment'
-    }
   }
 }
