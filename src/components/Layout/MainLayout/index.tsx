@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { FunctionComponent } from 'react'
+import { Menu } from 'semantic-ui-react'
 
 const GlobalLayoutStyle = createGlobalStyle`
   body {

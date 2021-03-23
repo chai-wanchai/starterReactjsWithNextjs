@@ -1,7 +1,6 @@
 import cors from 'cors'
 import helmet from 'helmet'
 import express from 'express'
-import passport from 'passport'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import featureRoute from './routes/feature'

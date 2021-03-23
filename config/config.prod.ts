@@ -5,8 +5,8 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: true,
   api: {
-    backEnd: 'http://34.126.93.32:4000',
-    frontEnd: 'http://34.126.93.32:5000'
+    backEnd: 'http://localhost:4000',
+    frontEnd: 'http://localhost:5000'
   }
 }
 

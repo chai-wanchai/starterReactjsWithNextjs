@@ -24,12 +24,7 @@ export default function CreateParty() {
 		}
 	}
 	return (
-		<div>
-			<div>
-				<Button icon="arrow left" onClick={() => { router.push('/') }}></Button>
-				<h2>สร้างปาร์ตี้</h2>
-			</div>
-
+		<>
 			<Form>
 				<Form.Field>
 					<label>ชื่อปาร์ตี้</label>
@@ -39,8 +34,8 @@ export default function CreateParty() {
 					<label>จำนวนคนที่ขาด</label>
 					<input placeholder='จำนวนคนที่ขาด' onChange={onChange} name="limit" value={partyInfo.limit} type="number" />
 				</Form.Field>
-				<Button type='submit' onClick={onClickCreate} >สร้างปาร์ตี้</Button>
+				<Button type='submit' onClick={onClickCreate} className="btn-center">สร้างปาร์ตี้</Button>
 			</Form>
-		</div>
+		</>
 	)
 }

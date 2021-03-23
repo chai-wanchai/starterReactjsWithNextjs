@@ -1,6 +1,5 @@
 import { ServerStyleSheet } from 'styled-components'
-import NextDocument, { Head, Main, NextScript } from 'next/document'
-
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 const hostCDN = 'https://cdn.jsdelivr.net'
 const hostFont = 'https://fonts.googleapis.com'
 
@@ -32,7 +31,7 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           <base href='/' />
           <meta charSet='UTF-8' />
@@ -45,14 +44,13 @@ export default class Document extends NextDocument {
           {/** cdn css */}
           <link rel='stylesheet' href={`${hostCDN}/npm/semantic-ui@2.4.2/dist/semantic.min.css`} />
           <link rel='stylesheet' href={`${hostCDN}/npm/react-datepicker@2.12.1/dist/react-datepicker.min.css`} />
-          <link rel='stylesheet' href={`/css/login.css`} />
-
+          <link rel='stylesheet' href={`/css/style.css`} />
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

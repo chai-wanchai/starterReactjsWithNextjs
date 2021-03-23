@@ -3,17 +3,13 @@ import BaseApi from './BaseApi'
 
 class AuthApi extends BaseApi {
 
-  /** @Logout for rebate online app */
-  public logout = () => {
-
-  }
+ 
   public login = (username: string, password: string) => {
     return this.apiPost('/api/auth/login', { username, password })
   }
   public verifyToken = (token?: string) => {
     return this.apiPost('api/auth/verify', {}, this.setAuthorize(token))
   }
-
   public registerUser = (data) =>
     this.apiPost('/api/auth/register', data)
 

@@ -44,28 +44,26 @@ export default function register() {
 		}
 	}
 	return (
-		<Grid centered columns={2}>
-			<Grid.Column>
-				<h4>สร้างบัญชีผู้ใช้</h4>
-				<Form>
-					<Form.Field>
-						<label>อีเมลล์</label>
-						<input placeholder='อีเมลล์' onChange={onChange} name="email" value={userInfo.email} />
-					</Form.Field>
-					<Form.Field>
-						<label>รหัสผ่าน</label>
-						<input placeholder='รหัสผ่าน' type="password" onChange={onChange} name="password" value={userInfo.password} />
-					</Form.Field>
-					<Form.Field>
-						<label>ยืนยันรหัสผ่าน</label>
-						<input placeholder='ยืนยันรหัสผ่าน' type="password" onChange={onChange} name="confirm_password" value={userInfo.confirm_password} />
-					</Form.Field>
-					<Form.Field>
-						<Checkbox label='ฉันยอมรับเงื่อนไขและข้อตกลงเกี่ยวกับการใช้งาน' onChange={acceptConsent} />
-					</Form.Field>
-					<Button type='submit' onClick={onClickInfo}>ยืนยัน</Button>
-				</Form>
-			</Grid.Column>
-		</Grid>
+		<div className="centered">
+			<h4>สร้างบัญชีผู้ใช้</h4>
+			<Form>
+				<Form.Field>
+					<label>อีเมลล์</label>
+					<input placeholder='อีเมลล์' onChange={onChange} name="email" value={userInfo.email} />
+				</Form.Field>
+				<Form.Field>
+					<label>รหัสผ่าน</label>
+					<input placeholder='รหัสผ่าน' type="password" onChange={onChange} name="password" value={userInfo.password} />
+				</Form.Field>
+				<Form.Field>
+					<label>ยืนยันรหัสผ่าน</label>
+					<input placeholder='ยืนยันรหัสผ่าน' type="password" onChange={onChange} name="confirm_password" value={userInfo.confirm_password} />
+				</Form.Field>
+				<Form.Field>
+					<Checkbox label='ฉันยอมรับเงื่อนไขและข้อตกลงเกี่ยวกับการใช้งาน' onChange={acceptConsent} />
+				</Form.Field>
+				<Button type='submit' onClick={onClickInfo}>ยืนยัน</Button>
+			</Form>
+		</div>
 	)
 }

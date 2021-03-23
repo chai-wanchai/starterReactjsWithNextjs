@@ -3,8 +3,6 @@ import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import NextApp, { AppContext } from 'next/app'
 import { WebAppContext } from '../src/intefaces'
-import { initStore } from '../src/stores'
-import { creator as authCreator } from '../src/stores/auth/action'
 import Layout from '../src/components/Layout'
 import AppProgress from '../src/components/AppProgress'
 import ErrorPage from './_error'
@@ -19,8 +17,6 @@ interface WebAppProps {
 
 class WebApp extends NextApp<WebAppProps> {
 
-  state = {}
-
   static async getInitialProps(context: WebAppContextProps) {
     const { Component, ctx } = context
 
@@ -34,7 +30,6 @@ class WebApp extends NextApp<WebAppProps> {
       }
 
     } catch (err) {
-
       return {
         pageProps: {}
       }
@@ -55,7 +50,7 @@ class WebApp extends NextApp<WebAppProps> {
       }
     } = this.props
     return (
-      <Provider store={store}>
+      <>
         {error || statusCode ? (
           <Layout type='none'>
              <ErrorPage statusCode={error || statusCode} />
@@ -71,9 +66,9 @@ class WebApp extends NextApp<WebAppProps> {
           showAfterMs={300}
           options={{ trickleSpeed: 50 }}
         />
-      </Provider>
+      </>
     )
   }
 }
 
-export default withRedux(initStore)(WebApp)
+export default WebApp
