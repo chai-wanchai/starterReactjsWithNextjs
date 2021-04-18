@@ -1,19 +1,19 @@
-FROM node:12.10.0
+FROM node:10.23.1-alpine3.9
 
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+RUN apk update
+RUN apk --no-cache add curl
+WORKDIR /app
 
-COPY package*.json ./
+COPY . /app
+RUN ls -l
 
 # Install all node modules
-RUN yarn
-
-COPY . .
+RUN npm install
 
 # Build project
 RUN npm run build
 
-# Exposing port 4000 to connect external
+# Exposing port 8080 to connect external
 EXPOSE 8080
 
 # Start node server with production

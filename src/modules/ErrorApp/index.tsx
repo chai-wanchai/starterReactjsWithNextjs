@@ -104,7 +104,7 @@ const Error: FunctionComponent<ErrorProps> = ({
       <GlobalStyle />
       <Wrapper>
         <ContentLeft>
-          <img src='/images/img-background-error.png' />
+          <img src='https://i.pinimg.com/736x/4e/1f/eb/4e1feb9123d1322fe7b8585d26f4a737.jpg' />
         </ContentLeft>
         <ContentRight>
           <ErrorCode>{statusCode || 'Oops!!'}</ErrorCode>

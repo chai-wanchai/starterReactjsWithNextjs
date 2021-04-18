@@ -35,8 +35,6 @@ export default class Document extends NextDocument {
         <Head>
           <base href='/' />
           <meta charSet='UTF-8' />
-          <meta httpEquiv='X-UA-Compatible' content='IE=Edge' />
-          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link rel='icon' type='image/x-icon' href='/images/favicon.ico' />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />

@@ -9,9 +9,9 @@ export default function login({
 }) {
 	useEffect(() => {
 		const token = userToken.getUserToken()
-		if (token) {
-			router.push('/')
-		}
+		// if (token) {
+		// 	router.push('/')
+		// }
 	}, [])
 	const [userLogin, setUserLogin] = useState({
 		email: '',

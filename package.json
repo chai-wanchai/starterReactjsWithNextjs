@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node build/server/index.js",
-    "preset": "copyfiles config/ADFS/*.cert build/"
+    "preset": "copyfiles config/ADFS/*.cert build/",
+    "build:gcloud":"gcloud builds submit --tag gcr.io/resume-df5a8/zipmex-bot-web"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.0",
