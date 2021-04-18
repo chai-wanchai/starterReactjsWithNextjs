@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # Exposing port 4000 to connect external
-EXPOSE 5000
+EXPOSE 8080
 
 # Start node server with production
 CMD ["npm", "start"]

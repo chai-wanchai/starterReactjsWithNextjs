@@ -7,14 +7,9 @@ import featureRoute from './routes/feature'
 import app from './app'
 import domain  from 'domain'
 
-const port = parseInt(process.env.PORT || '5000', 10)
+const port = parseInt(process.env.PORT || '8080', 10)
 const handle = app.getRequestHandler()
 
-// Setup passport saml config
-// passportSaml(passport)
-
-// Handle render page with NextJS
-// const renderPage = (req, res, path, query?) => app.render(req, res, path, query)
 const renderPage = (req, res, pagePath, queryParams?) => app
   .render(req, res, pagePath, queryParams)
   .catch(err => app.renderError(err, req, res, pagePath, queryParams))
@@ -29,8 +24,7 @@ app.prepare().then(() => {
       // explicit binding
       process.domain.add(req)
       process.domain.add(res)
-      // save request to domain, to make it accessible everywhere
-    
+      // save request to domain, to make it accessible everywhere    
       next()
     });
   });
