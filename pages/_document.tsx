@@ -43,6 +43,7 @@ export default class Document extends NextDocument {
           <link rel='stylesheet' href={`${hostCDN}/npm/semantic-ui@2.4.2/dist/semantic.min.css`} />
           <link rel='stylesheet' href={`${hostCDN}/npm/react-datepicker@2.12.1/dist/react-datepicker.min.css`} />
           <link rel='stylesheet' href={`/css/style.css`} />
+
         </Head>
         <body>
           <Main />

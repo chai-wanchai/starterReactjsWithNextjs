@@ -5,8 +5,8 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: true,
   api: {
-    backEnd: 'http://localhost:4000',
-    frontEnd: 'http://localhost:5000'
+    backEnd: 'https://resume-df5a8.uc.r.appspot.com',
+    frontEnd: 'https://zipmex-web.chaychai.com'
   }
 }
 

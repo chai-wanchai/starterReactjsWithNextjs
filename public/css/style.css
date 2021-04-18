@@ -4,6 +4,7 @@
 }
 body {
   margin: 0;
+  font-family: 'Kanit', sans-serif !important;
 }
 .nav {
   height: 60px;
