@@ -9,7 +9,7 @@ const failedResponse = (error: AxiosError) => {
   if (error.response && error.response.status === 401) { // Unauthorized
     ajaxResult.setError(error.message, 401)
   } else {
-    const errorMsg = error.response.data?.error?.message || error.message
+    const errorMsg = error.response?.data?.error?.message || error.message
     ajaxResult.setError(errorMsg)
   }
   return Promise.resolve(ajaxResult)

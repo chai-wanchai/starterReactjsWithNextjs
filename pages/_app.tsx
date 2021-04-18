@@ -1,5 +1,4 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import NextApp, { AppContext } from 'next/app'
 import { WebAppContext } from '../src/intefaces'
