@@ -5,7 +5,7 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: true,
   zipmexBot: {
-    line_id: '@049fjmya',
+    line_id: '@815thexh',
   },
   api: {
     backEnd: 'https://resume-df5a8.uc.r.appspot.com',

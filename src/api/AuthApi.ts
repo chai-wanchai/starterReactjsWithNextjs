@@ -1,4 +1,5 @@
 import { IUserInfo } from '../@type/user'
+import { RequestApiResponse } from '../intefaces'
 import userToken from '../utils/userToken'
 import BaseApi from './BaseApi'
 
@@ -8,7 +9,7 @@ class AuthApi extends BaseApi {
   public login(username: string, password: string) {
     return this.apiPost('/api/auth/login', { username, password })
   }
-  public getUserProfile(userUid: string):Promise<IUserInfo> {
+  public getUserProfile(userUid: string):Promise<RequestApiResponse<IUserInfo>> {
     return this.apiGet(`/api/auth/user/${userUid}`)
   }
   public zipmexToken(user_uid: string, token: string, access_token?: string) {

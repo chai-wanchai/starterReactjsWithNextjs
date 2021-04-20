@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import { Button, Card, Form } from 'semantic-ui-react'
+import { Button, Card, Form, Header } from 'semantic-ui-react'
 import { authApi } from '../src/api/AuthApi'
 import modal from '../src/utils/modal'
 import SessionToken from '../src/components/Instruction/SessionToken'
@@ -17,6 +17,7 @@ export default function ZipmexSessionToken(props) {
 			userId: ""
 		}
 	})
+	const [disableInput,setDisable] = useState(false)
 	useEffect(() => {
 		let uid = ''
 		if (props.router) {
@@ -27,9 +28,9 @@ export default function ZipmexSessionToken(props) {
 	const getUserProfile = async (uid: string) => {
 		try {
 			const user = await authApi.getUserProfile(uid)
-			console.log(user)
-			setUserInfo({ ...userInfo, profile: user })
+			setUserInfo({ ...userInfo, profile: user.data })
 		} catch (error) {
+			setDisable(true)
 			modal.error(error.error.message)
 		}
 	}
@@ -49,8 +50,8 @@ export default function ZipmexSessionToken(props) {
 			modal.error(error.error.message)
 			console.log(error.error.message)
 		}
-
 	}
+	let userWelcome = userInfo.profile?.displayName ? `สวัสดีคุณ ${userInfo.profile.displayName}` : ''
 	return (
 		<div style={{ backgroundColor: '#152b43', padding: '2rem' }}>
 			<Head>
@@ -60,10 +61,11 @@ export default function ZipmexSessionToken(props) {
 			{/* <img src={userInfo.profile?.pictureUrl} style={{ display: 'flex', margin: 'auto', width: '50%' }}></img> */}
 			<SessionToken/>
 			<Card style={{ padding: '2rem', width: '80%', margin: '2rem auto' }}>
+				<Header>{userWelcome}</Header>
 				<Form >
-					<Form.Input label="token" name="token" onChange={onChange} value={userInfo.token}></Form.Input>
-					<Form.Input label="zmToken" name="zmToken" onChange={onChange} value={userInfo.zmToken}></Form.Input>
-					<Button style={{ backgroundColor: '#21bdca', color: 'white', display: 'flex', margin: 'auto' }} onClick={onSubmit}>ยืนยัน</Button>
+					<Form.Input label="token" name="token" onChange={onChange} value={userInfo.token} disabled={disableInput}></Form.Input>
+					<Form.Input label="zmToken" name="zmToken" onChange={onChange} value={userInfo.zmToken} disabled={disableInput}></Form.Input>
+					<Button style={{ backgroundColor: '#21bdca', color: 'white', display: 'flex', margin: 'auto' }} onClick={onSubmit} disabled={disableInput}>ยืนยัน</Button>
 				</Form>
 			</Card>
 		</div>

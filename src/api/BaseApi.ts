@@ -9,7 +9,7 @@ export default abstract class BaseApi {
       authorization: `${type} ${token}`
     }
   })
-  protected apiGet = (url: string, option?: AxiosRequestConfig): Promise<RequestApiResponse | any> =>
+  protected apiGet = (url: string, option?: AxiosRequestConfig): Promise<RequestApiResponse> =>
     request.api.get(url, option)
   protected apiPost = (url: string, params?: any, option?: AxiosRequestConfig): Promise<RequestApiResponse> =>
     request.api.post(url, params, option)
