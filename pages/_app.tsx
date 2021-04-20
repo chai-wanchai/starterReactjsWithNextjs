@@ -7,6 +7,7 @@ import AppProgress from '../src/components/AppProgress'
 import ErrorPage from './_error'
 import '../src/scss/sweetAlert.scss'
 import '../src/scss/fonts.scss'
+import '../src/scss/app.scss'
 interface WebAppContextProps extends AppContext {
   ctx: WebAppContext
 }
@@ -60,12 +61,6 @@ class WebApp extends NextApp<WebAppProps> {
             <Component {...this.props} {...pageProps}/>
           </Layout>
         )}
-        <AppProgress
-          color='red'
-          spinner={false}
-          showAfterMs={300}
-          options={{ trickleSpeed: 50 }}
-        />
       </>
     )
   }

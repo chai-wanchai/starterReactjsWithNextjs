@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Button, Card, Form } from 'semantic-ui-react'
 import { authApi } from '../src/api/AuthApi'
 import modal from '../src/utils/modal'
-import swal from 'sweetalert2';
+import SessionToken from '../src/components/Instruction/SessionToken'
+import config from '../config'
 export default function ZipmexSessionToken(props) {
 	const [userInfo, setUserInfo] = useState({
 		token: '',
@@ -30,14 +31,6 @@ export default function ZipmexSessionToken(props) {
 			setUserInfo({ ...userInfo, profile: user })
 		} catch (error) {
 			modal.error(error.error.message)
-			console.log(error.error.message)
-			// swal.fire({
-			// 	customClass: 'nexter-alert',
-			// 	type: 'error',
-			// 	title: 'เกิดข้อผิดพลาด!',
-			// 	text: 'กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน',
-			// 	confirmButtonText: 'ลองอีกครั้ง',
-			// });
 		}
 	}
 	const onChange = (e, { name, value }) => {
@@ -49,7 +42,9 @@ export default function ZipmexSessionToken(props) {
 		const { profile, token, zmToken } = userInfo
 		try {
 			const login = await authApi.zipmexToken(profile.userId, token, zmToken)
-			console.log(login)
+			modal.success(`การเชื่อมต่อ zipmex lime bot กับ zipmex สำเร็จ`,{text:`Email : ${login.data}`}).then(result=>{
+				window.open(`https://line.me/R/ti/p/${config.zipmexBot?.line_id}`,'_self')
+			})			
 		} catch (error) {
 			modal.error(error.error.message)
 			console.log(error.error.message)
@@ -57,12 +52,13 @@ export default function ZipmexSessionToken(props) {
 
 	}
 	return (
-		<div style={{ backgroundColor: '#152b43', height: '100vh', padding: '2rem' }}>
+		<div style={{ backgroundColor: '#152b43', padding: '2rem' }}>
 			<Head>
 				<title>Zipmex & Line</title>
 			</Head>
 			{/* <img src={`https://miro.medium.com/max/940/1*-EMpvyu_z4W60PVYMkU49Q.png`} style={{ display: 'flex', margin: 'auto' }}></img> */}
 			{/* <img src={userInfo.profile?.pictureUrl} style={{ display: 'flex', margin: 'auto', width: '50%' }}></img> */}
+			<SessionToken/>
 			<Card style={{ padding: '2rem', width: '80%', margin: '2rem auto' }}>
 				<Form >
 					<Form.Input label="token" name="token" onChange={onChange} value={userInfo.token}></Form.Input>

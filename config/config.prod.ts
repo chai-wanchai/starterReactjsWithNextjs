@@ -4,6 +4,9 @@ const conf: Config = {
   env: "production",
   authKey: 'utk',
   envSecure: true,
+  zipmexBot: {
+    line_id: '@049fjmya',
+  },
   api: {
     backEnd: 'https://resume-df5a8.uc.r.appspot.com',
     frontEnd: 'https://zipmex-web.chaychai.com'

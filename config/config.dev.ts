@@ -5,6 +5,9 @@ const conf: Config = {
   authKey: 'utk',
   envSecure: false,
   port: '5000',
+  zipmexBot: {
+    line_id: '@049fjmya',
+  },
   api: {
     backEnd: 'http://localhost:8080',
     frontEnd: 'http://localhost:5000'

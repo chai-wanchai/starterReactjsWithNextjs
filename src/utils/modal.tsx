@@ -35,7 +35,7 @@ class Modal {
 
   public error = (msgError?: string, onClose?: Function): OpenResult => this._modal.fire({
     type: 'error',
-    icon:'error',
+    icon: 'error',
     title: 'ผิดพลาด!',
     allowOutsideClick: false,
     confirmButtonText: 'ลองใหม่',
@@ -46,7 +46,14 @@ class Modal {
       }
     }
   })
-  
+  public success = (msg: string = 'บันทึกข้อมูลสำเร็จ', options?: Options): OpenResult => this._modal.fire({
+    type: 'success',
+    icon: 'success',
+    title: <p>{msg}</p>,
+    confirmButtonText: 'ตกลง',
+    ...options
+  })
+
   public confirm = (msg: string = 'ยืนยันการแก้ไขข้อมูล'): OpenResult => this._modal.fire({
     type: 'warning',
     title: <p>{msg}</p>,
