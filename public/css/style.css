@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
 }
-body {
+body * {
   margin: 0;
-  font-family: 'Kanit', sans-serif !important;
+  font-family: Inter, Sarabun, sans-serif !important;
 }
 .nav {
   height: 60px;

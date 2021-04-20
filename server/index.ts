@@ -6,8 +6,8 @@ import cookieParser from 'cookie-parser'
 import featureRoute from './routes/feature'
 import app from './app'
 import domain  from 'domain'
-
-const port = parseInt(process.env.PORT || '8080', 10)
+import config from '../config'
+const port = parseInt(process.env.PORT || config.port || '8080', 10)
 const handle = app.getRequestHandler()
 
 const renderPage = (req, res, pagePath, queryParams?) => app
@@ -28,6 +28,7 @@ app.prepare().then(() => {
       next()
     });
   });
+  server.use('/public',express.static('public'))
   // Form parser.
   server.use(bodyParser.urlencoded({ extended: true }))
   // Body parser.

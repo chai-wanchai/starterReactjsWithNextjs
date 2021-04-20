@@ -2,17 +2,21 @@ import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import config from '../../config'
 import AjaxRequest from './AjaxtRequest'
 
-const successResponse = ({ data }: AxiosResponse) => data
+const successResponse = ({ data }: AxiosResponse) :any=> {
+  const ajaxResult = new AjaxRequest()
+  ajaxResult.data = data.data || data
+  return ajaxResult
+}
 
 const failedResponse = (error: AxiosError) => {
   const ajaxResult = new AjaxRequest()
   if (error.response && error.response.status === 401) { // Unauthorized
     ajaxResult.setError(error.message, 401)
   } else {
-    const errorMsg = error.response?.data?.error?.message || error.message
-    ajaxResult.setError(errorMsg)
+    const errorMsg = error.response?.data?.error?.message
+    ajaxResult.setError(errorMsg, error.response.status)
   }
-  return Promise.resolve(ajaxResult)
+  return Promise.reject(ajaxResult)
 }
 
 class Request {
@@ -21,7 +25,6 @@ class Request {
     timeout: 60000
   })
   public app: AxiosInstance = axios.create({
-    // baseURL: config.api.frontEnd,
     timeout: 60000
   })
   constructor() {

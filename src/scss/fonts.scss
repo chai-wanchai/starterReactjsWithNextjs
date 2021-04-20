@@ -1,0 +1,181 @@
+/* Font Inter */
+
+@font-face {
+  font-family: Inter;
+  font-weight: 100;
+  src: url(/public/fonts/inter/100-Inter-Thin.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 200;
+  src: url(/public/fonts/inter/200-Inter-ExtraLight.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 300;
+  src: url(/public/fonts/inter/300-Inter-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 400;
+  src: url(/public/fonts/inter/400-Inter-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  src: url(/public/fonts/inter/500-Inter-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  src: url(/public/fonts/inter/600-Inter-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 700;
+  src: url(/public/fonts/inter/700-Inter-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 800;
+  src: url(/public/fonts/inter/800-Inter-ExtraBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 900;
+  src: url(/public/fonts/inter/900-Inter-Black.ttf) format("truetype");
+}
+
+/* Font Sarabun - normal */
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/public/fonts/sarabun/100-Sarabun-Thin.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 200;
+  src: url(/public/fonts/sarabun/200-Sarabun-ExtraLight.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 300;
+  src: url(/public/fonts/sarabun/300-Sarabun-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/public/fonts/sarabun/400-Sarabun-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  src: url(/public/fonts/sarabun/500-Sarabun-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 600;
+  src: url(/public/fonts/sarabun/600-Sarabun-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 700;
+  src: url(/public/fonts/sarabun/700-Sarabun-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 800;
+  src: url(/public/fonts/sarabun/800-Sarabun-ExtraBold.ttf) format("truetype");
+}
+
+/* Font Sarabun - italic */
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 100;
+  src: url(/public/fonts/sarabun/100-Sarabun-ThinItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 200;
+  src: url(/public/fonts/sarabun/200-Sarabun-ExtraLightItalic.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 300;
+  src: url(/public/fonts/sarabun/300-Sarabun-LightItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 400;
+  src: url(/public/fonts/sarabun/400-Sarabun-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 500;
+  src: url(/public/fonts/sarabun/500-Sarabun-MediumItalic.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 600;
+  src: url(/public/fonts/sarabun/600-Sarabun-SemiBoldItalic.ttf)
+    format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 700;
+  src: url(/public/fonts/sarabun/700-Sarabun-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sarabun;
+  font-style: italic;
+  font-weight: 800;
+  src: url(/public/fonts/sarabun/800-Sarabun-ExtraBoldItalic.ttf)
+    format("truetype");
+}
+
+html {
+  body {
+    font-family: Inter, Sarabun, sans-serif;
+  }
+}

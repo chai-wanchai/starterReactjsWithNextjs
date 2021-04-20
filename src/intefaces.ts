@@ -9,10 +9,12 @@ export interface Config {
   env: string
   authKey: string
   envSecure: boolean
+  port?: string
   api: {
     backEnd: string
     frontEnd: string
   }
+  [key: string]: any
 }
 
 export interface PublicRuntime { // This interface ref from {@root}/next.config.js

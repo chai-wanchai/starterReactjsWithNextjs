@@ -35,7 +35,8 @@ class Modal {
 
   public error = (msgError?: string, onClose?: Function): OpenResult => this._modal.fire({
     type: 'error',
-    title: <p>ผิดพลาด!</p>,
+    icon:'error',
+    title: 'ผิดพลาด!',
     allowOutsideClick: false,
     confirmButtonText: 'ลองใหม่',
     text: msgError || 'กรุณาลองใหม่ในภายหลัง',

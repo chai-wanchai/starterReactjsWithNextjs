@@ -5,7 +5,8 @@ import { WebAppContext } from '../src/intefaces'
 import Layout from '../src/components/Layout'
 import AppProgress from '../src/components/AppProgress'
 import ErrorPage from './_error'
-
+import '../src/scss/sweetAlert.scss'
+import '../src/scss/fonts.scss'
 interface WebAppContextProps extends AppContext {
   ctx: WebAppContext
 }

@@ -2,6 +2,8 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Form } from 'semantic-ui-react'
 import { authApi } from '../src/api/AuthApi'
+import modal from '../src/utils/modal'
+import swal from 'sweetalert2';
 export default function ZipmexSessionToken(props) {
 	const [userInfo, setUserInfo] = useState({
 		token: '',
@@ -24,9 +26,18 @@ export default function ZipmexSessionToken(props) {
 	const getUserProfile = async (uid: string) => {
 		try {
 			const user = await authApi.getUserProfile(uid)
-			setUserInfo({ ...userInfo, profile: user.data })
+			console.log(user)
+			setUserInfo({ ...userInfo, profile: user })
 		} catch (error) {
-			console.log(error)
+			modal.error(error.error.message)
+			console.log(error.error.message)
+			// swal.fire({
+			// 	customClass: 'nexter-alert',
+			// 	type: 'error',
+			// 	title: 'เกิดข้อผิดพลาด!',
+			// 	text: 'กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน',
+			// 	confirmButtonText: 'ลองอีกครั้ง',
+			// });
 		}
 	}
 	const onChange = (e, { name, value }) => {
@@ -36,15 +47,21 @@ export default function ZipmexSessionToken(props) {
 	}
 	const onSubmit = async () => {
 		const { profile, token, zmToken } = userInfo
-		const login = await authApi.zipmexToken(profile.userId, token, zmToken)
-		console.log(login)
+		try {
+			const login = await authApi.zipmexToken(profile.userId, token, zmToken)
+			console.log(login)
+		} catch (error) {
+			modal.error(error.error.message)
+			console.log(error.error.message)
+		}
+
 	}
 	return (
 		<div style={{ backgroundColor: '#152b43', height: '100vh', padding: '2rem' }}>
-			 <Head>
-        <title>Zipmex & Line</title>
-      </Head>
-			<img src={`https://miro.medium.com/max/940/1*-EMpvyu_z4W60PVYMkU49Q.png`} style={{ display: 'flex', margin: 'auto' }}></img>
+			<Head>
+				<title>Zipmex & Line</title>
+			</Head>
+			{/* <img src={`https://miro.medium.com/max/940/1*-EMpvyu_z4W60PVYMkU49Q.png`} style={{ display: 'flex', margin: 'auto' }}></img> */}
 			{/* <img src={userInfo.profile?.pictureUrl} style={{ display: 'flex', margin: 'auto', width: '50%' }}></img> */}
 			<Card style={{ padding: '2rem', width: '80%', margin: '2rem auto' }}>
 				<Form >
