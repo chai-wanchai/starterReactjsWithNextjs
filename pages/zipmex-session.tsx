@@ -31,7 +31,7 @@ export default function ZipmexSessionToken(props) {
 			setUserInfo({ ...userInfo, profile: user.data })
 		} catch (error) {
 			setDisable(true)
-			modal.error(error.error.message)
+			modal.error(error?.error?.message)
 		}
 	}
 	const onChange = (e, { name, value }) => {
